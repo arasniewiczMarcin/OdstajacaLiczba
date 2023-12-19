@@ -19,5 +19,6 @@ Zadanie rekrutacyjne wykonane przy pomocy frameworka Vue.
 npm install
 npm run dev
 ```
+6. Skopiuj link z terminalu i wklej go w przeglądarce
 ## Autor
 # Marcin Araśniewicz
