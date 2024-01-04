@@ -13,7 +13,7 @@ const parsedMessage = Number(differentNumber)
 
 <template>
   <div class="flex flex-col gap-8 items-center justify-center h-screen">
-    <h1>The different number is: {{ parsedMessage }}</h1>
+    <div class="border-2 border-cyan-600 p-2 rounded-md w-1/3">The different number is: {{ parsedMessage }}</div>
     <router-link to="/">
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
             Go back

@@ -21,7 +21,6 @@ const isWantedNumberOdd = (firstThreeNumArray:number[]) => {
 }
 
 const findDifferentNumber = (numArray: number[]) => {
-  
   const firstThree = [numArray[0], numArray[1], numArray[2]]
   
   if(isWantedNumberOdd(firstThree)) return findWantedNumber(1, numArray)
@@ -34,19 +33,21 @@ const navigateToSecond = (message: number) => {
   router.params = { message: message }
 }
 
+const handleButtonClick = (inputArray: string) => {
+  const differentNumber = findDifferentNumber(inputArray.split(',').map((num) => parseInt(num))) 
+      if (typeof differentNumber === 'number') navigateToSecond(differentNumber)
+}
+
 </script>
 
 <template>
   
-  <input v-model="inputArray" type="text" class="border-2 border-blue-300 p-2 rounded-md w-1/3" />
+  <input v-model="inputArray" type="text" class="border-2 border-blue-300 p-2 rounded-md w-1/3"
+    @keyup.enter="handleButtonClick(inputArray)" />
  
     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-    @click="() => { 
-      const differentNumber = findDifferentNumber(inputArray.split(',').map((num) => parseInt(num))) 
-      if (typeof differentNumber === 'number') navigateToSecond(differentNumber)
-      
-    } 
-      ">Wyszukaj</button>
+    @click="handleButtonClick(inputArray)"
+      >Find the different number</button>
 
   
 </template>
