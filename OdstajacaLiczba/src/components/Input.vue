@@ -7,20 +7,22 @@ const inputArray = ref('')
 
 
 const findWantedNumber = (odd: number, numArray:number[]) => {
-  const wantedNumber = numArray.find((num) => num % 2 == odd)
+  const wantedNumber = numArray.find((num) => Math.abs(num % 2) == odd)
   return wantedNumber
 }
 
 const isWantedNumberOdd = (firstThreeNumArray:number[]) => {
+  
   let oddCount = 0
     firstThreeNumArray.forEach((num)=>{
-    if(num % 2 == 1) oddCount++
+    if(Math.abs(num % 2) == 1) oddCount++
   })
   if(oddCount < 2) return true
   return false
 }
 
 const findDifferentNumber = (numArray: number[]) => {
+  
   const firstThree = [numArray[0], numArray[1], numArray[2]]
   
   if(isWantedNumberOdd(firstThree)) return findWantedNumber(1, numArray)
